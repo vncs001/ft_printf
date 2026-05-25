@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vaugusto <vaugusto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 13:41:35 by vaugusto          #+#    #+#             */
-/*   Updated: 2026/05/25 14:25:04 by vaugusto         ###   ########.fr       */
+/*   Created: 2026/04/22 11:37:17 by vaugusto          #+#    #+#             */
+/*   Updated: 2026/05/17 23:56:04 by vaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include <stddef.h>
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*arr;
 
-int		ft_printf(const char *str, ...);
-// str/char
-void	ft_print_c(char c);
-void	ft_print_s(char *s);
-// decimal
-void	ft_print_i(int n);
-void	ft_print_ud(unsigned int n);
-void	ft_print_d(long n);
-// hexadecimal
-void	ft_print_hex(unsigned int n, char format);
+	i = 0;
+	arr = (unsigned char *)s;
+	while (i < n)
+		arr[i++] = (unsigned char)c;
+	return (s);
+}
 
-#endif
+// #include <stdio.h>
+// int main() {
+//    char str[50];
+//    ft_memset(str, '.', 9);
+//    str[49] = '\0';
+//    printf("%s\n", str);
+//    return 0;
+// }

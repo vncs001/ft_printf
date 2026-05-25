@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_print_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vaugusto <vaugusto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 13:41:35 by vaugusto          #+#    #+#             */
-/*   Updated: 2026/05/25 14:25:04 by vaugusto         ###   ########.fr       */
+/*   Created: 2026/05/20 13:07:17 by vaugusto          #+#    #+#             */
+/*   Updated: 2026/05/20 14:23:37 by vaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+void	ft_print_s(char *s)
+{
+	size_t	i;
 
-int		ft_printf(const char *str, ...);
-// str/char
-void	ft_print_c(char c);
-void	ft_print_s(char *s);
-// decimal
-void	ft_print_i(int n);
-void	ft_print_ud(unsigned int n);
-void	ft_print_d(long n);
-// hexadecimal
-void	ft_print_hex(unsigned int n, char format);
-
-#endif
+	i = 0;
+	while (s[i] != '\0')
+		write(1, &s[i++], 1);
+}

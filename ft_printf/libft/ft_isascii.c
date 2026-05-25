@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vaugusto <vaugusto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 13:41:35 by vaugusto          #+#    #+#             */
-/*   Updated: 2026/05/25 14:25:04 by vaugusto         ###   ########.fr       */
+/*   Created: 2026/04/22 11:09:50 by vaugusto          #+#    #+#             */
+/*   Updated: 2026/05/18 00:02:02 by vaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}
 
-int		ft_printf(const char *str, ...);
-// str/char
-void	ft_print_c(char c);
-void	ft_print_s(char *s);
-// decimal
-void	ft_print_i(int n);
-void	ft_print_ud(unsigned int n);
-void	ft_print_d(long n);
-// hexadecimal
-void	ft_print_hex(unsigned int n, char format);
-
-#endif
+// #include <stdio.h>
+// int	main()
+// {
+// 	printf("%d\n", ft_isascii('a'));
+// 	printf("%d\n", ft_isascii('9'));
+// 	printf("%d\n", ft_isascii('$'));
+// 	printf("%d\n", ft_isascii('0'));
+// 	printf("%d\n", ft_isascii(' '));
+// }

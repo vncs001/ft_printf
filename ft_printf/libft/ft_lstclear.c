@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vaugusto <vaugusto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 13:41:35 by vaugusto          #+#    #+#             */
-/*   Updated: 2026/05/25 14:25:04 by vaugusto         ###   ########.fr       */
+/*   Created: 2026/05/17 12:30:49 by vaugusto          #+#    #+#             */
+/*   Updated: 2026/05/17 21:27:31 by vaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*temp;
+	t_list	*temp2;
 
-int		ft_printf(const char *str, ...);
-// str/char
-void	ft_print_c(char c);
-void	ft_print_s(char *s);
-// decimal
-void	ft_print_i(int n);
-void	ft_print_ud(unsigned int n);
-void	ft_print_d(long n);
-// hexadecimal
-void	ft_print_hex(unsigned int n, char format);
-
-#endif
+	temp = *lst;
+	while (temp != NULL)
+	{
+		temp2 = temp->next;
+		ft_lstdelone(temp, del);
+		temp = temp2;
+	}
+	*lst = NULL;
+}
