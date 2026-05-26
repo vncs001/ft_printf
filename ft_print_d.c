@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_print_d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vaugusto <vaugusto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/15 09:50:45 by vaugusto          #+#    #+#             */
-/*   Updated: 2026/05/20 17:06:21 by vaugusto         ###   ########.fr       */
+/*   Created: 2026/05/25 13:23:29 by vaugusto          #+#    #+#             */
+/*   Updated: 2026/05/26 16:48:44 by vaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "ft_printf.h"
 
-static int	ft_nbrlen(int n)
+static long	ft_nbrlen(long n)
 {
-	int	len;
+	long	len;
 
 	len = (n <= 0);
 	while (n)
@@ -26,11 +25,11 @@ static int	ft_nbrlen(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_long_itoa(long n)
 {
-	char	*str;
-	long	nb;
-	int		len;
+	char		*str;
+	long		nb;
+	long		len;
 
 	len = ft_nbrlen(n);
 	str = (char *)malloc((len + 1) * sizeof(char));
@@ -52,3 +51,18 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
+
+int	ft_print_d(long n)
+{
+	char	*n_ptr;
+	int		len;
+
+	n_ptr = ft_long_itoa(n);
+	len = ft_print_s(n_ptr);
+	return (len);
+}
+
+// int	main(void)
+// {
+// 	ft_print_d(ft_print_d(42));
+// }

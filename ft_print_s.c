@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_print_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vaugusto <vaugusto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/17 12:00:17 by vaugusto          #+#    #+#             */
-/*   Updated: 2026/05/17 21:16:03 by vaugusto         ###   ########.fr       */
+/*   Created: 2026/05/20 13:07:17 by vaugusto          #+#    #+#             */
+/*   Updated: 2026/05/26 18:10:59 by vaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_print_s(char *s)
 {
-	t_list	*temp;
+	int	i;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	temp = *lst;
-	while (temp->next != NULL)
-		temp = temp->next;
-	temp->next = new;
+	if (!s)
+		return (ft_print_s("(null)"));
+	i = 0;
+	while (s[i] != '\0')
+		write(1, &s[i++], 1);
+	return (i);
 }
+
+// int	main(void)
+// {
+// 	ft_print_d(ft_print_s("vini"));
+// }

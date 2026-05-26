@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_d.c                                       :+:      :+:    :+:   */
+/*   ft_print_ud.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vaugusto <vaugusto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/25 13:23:29 by vaugusto          #+#    #+#             */
-/*   Updated: 2026/05/25 14:21:59 by vaugusto         ###   ########.fr       */
+/*   Created: 2026/05/20 18:07:58 by vaugusto          #+#    #+#             */
+/*   Updated: 2026/05/26 16:56:33 by vaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-static long	ft_nbrlen(long n)
+unsigned int	ft_nbrlen(unsigned int n)
 {
-	long	len;
+	unsigned int	len;
 
 	len = (n <= 0);
 	while (n)
@@ -25,11 +25,11 @@ static long	ft_nbrlen(long n)
 	return (len);
 }
 
-static char	*ft_long_itoa(long n)
+char	*ft_uns_itoa(unsigned int n)
 {
-	char		*str;
-	long		nb;
-	long		len;
+	char				*str;
+	long				nb;
+	unsigned int		len;
 
 	len = ft_nbrlen(n);
 	str = (char *)malloc((len + 1) * sizeof(char));
@@ -52,15 +52,17 @@ static char	*ft_long_itoa(long n)
 	return (str);
 }
 
-void	ft_print_d(long n)
+int	ft_print_ud(unsigned int n)
 {
 	char	*n_ptr;
+	int		len;
 
-	n_ptr = ft_long_itoa(n);
-	ft_print_s(n_ptr);
+	n_ptr = ft_uns_itoa(n);
+	len = ft_print_s(n_ptr);
+	return (len);
 }
 
 // int	main(void)
 // {
-// 	ft_print_d(42);
+// 	ft_print_d(ft_print_ud(4294967274));
 // }
