@@ -6,7 +6,7 @@
 /*   By: vaugusto <vaugusto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 18:07:58 by vaugusto          #+#    #+#             */
-/*   Updated: 2026/05/26 16:56:33 by vaugusto         ###   ########.fr       */
+/*   Updated: 2026/06/01 17:52:42 by vaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	ft_print_ud(unsigned int n)
 
 	n_ptr = ft_uns_itoa(n);
 	len = ft_print_s(n_ptr);
+	free(n_ptr);
 	return (len);
 }
 

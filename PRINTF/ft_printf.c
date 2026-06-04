@@ -6,14 +6,12 @@
 /*   By: vaugusto <vaugusto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 13:49:24 by vaugusto          #+#    #+#             */
-/*   Updated: 2026/05/26 17:56:41 by vaugusto         ###   ########.fr       */
+/*   Updated: 2026/06/01 17:22:51 by vaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-//TASKS (cada uma feita retire a linha de comentario)
-// - Completar funcao principal com va_list
-// - Completar funcao %p
+
 int	funnel(char identifier, va_list args)
 {
 	if (identifier == 'c')
@@ -26,6 +24,8 @@ int	funnel(char identifier, va_list args)
 		return (ft_print_i(va_arg(args, int)));
 	else if (identifier == 'u')
 		return (ft_print_ud(va_arg(args, unsigned int)));
+	else if (identifier == 'p')
+		return (ft_print_p(va_arg(args, void *)));
 	else if (identifier == 'x' || identifier == 'X')
 		return (ft_print_hex(va_arg(args, unsigned int), identifier));
 	else if (identifier == '%')
